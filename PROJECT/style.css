@@ -1,0 +1,739 @@
+/*---------- SZÍNEK ----------*/
+:root {
+    --vilagoslila: rgb(138, 79, 255);
+    --zoldeskek: rgb(0, 109, 119);
+    --sotetzold: rgb(0, 60, 60);
+    --vilagoskek: rgb(37, 183, 250);
+    --sotetlila: rgb(87, 31, 105);
+    --sotetkek2: rgb(29,35,49);
+    --sotetkek: rgb(28,37,63);
+    --szurke: rgb(43, 42, 51);
+    --vilagosszurke: rgb(66, 64, 73);
+    --feherlila: rgb(179, 154, 187);
+
+    --szin1: rgb(22,30,50); /* hatter */
+    --szin2: rgb(70,25,84); /* fejlec,lablec */
+    --szin3: rgb(11,15,25); /* ajanlo */
+    --szin4: rgb(35,38,39); /* szurke regist/login */
+}
+/*---------- FONTOK (hibás,javítás alatt) ----------*/
+/*
+@font-face {
+    font-family: AGREV;
+    src: url('font/AGREV18.ttf') format('truetype');
+}
+*/
+
+/*---------- FONTOK 2.0 ----------*/
+  /* font-family: 'Noto Sans', sans-serif; */
+  /* font-family: 'Kaushan Script', cursive; */
+  /* font-family: 'Alkatra', cursive; */
+  /* font-family: 'Kanit', sans-serif; */
+  /* font-family: 'Rajdhani', sans-serif; */
+  /* font-family: 'Space Mono', monospace; */
+  /* font-family: 'Righteous', sans-serif; */
+  /* font-family: 'BioRhyme', serif; */
+  /* font-family: 'Risque', cursive; */
+
+
+/*---------- BEÁLLÍTÁSOK ----------*/
+* {
+    box-sizing: border-box !important;
+}
+body {
+    background-color: var(--sotetkek);
+    color: white;
+    min-width: 300px;
+}
+main {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.hatternav, footer {
+    background-color: var(--sotetlila);
+}
+nav .navbar-brand {
+    margin-right: 0 !important;
+}
+nav .navbar-brand > img {
+    width: 125px;
+}
+nav a.navbar-brand:hover {
+    transition: transform .2s;
+    transform: scale(1.05);
+    color: var(--feherlila) !important;
+    text-decoration: underline;
+}
+nav li.nav-item a:hover {
+    transition: transform .2s;
+    transform: scale(1.025);
+    text-decoration: underline;
+    color: var(--feherlila) !important;
+}
+a.nav-link {
+    color: white !important;
+}
+nav .dropdown-item, .dropdown-menu {
+    background-color: var(--sotetlila);
+    color: white;
+}
+nav .dropdown-item:hover {
+    color: var(--feherlila);
+    background-color: var(--sotetlila) !important;
+}
+.modal span {
+    font-weight: bold;
+}
+
+/*---------- Kijelentkezés felugró ablaka ----------*/
+.modal-body {
+    background-color: var(--sotetkek);
+    text-align: justify;
+}
+.modal-header, .modal-footer {
+    background-color: var(--sotetlila);
+    color: white;
+}
+#felugro_kep {
+    width: 60%;
+}
+#kilepModal input[type="submit"], #kilepModal button {
+    cursor: pointer;
+}
+
+/*---------- MAIN ----------*/
+main {
+    min-height: 100vh;
+}
+footer {
+    line-height: 56px;
+}
+a.linkek {
+    color: white;
+}
+
+/*---------- Regisztráció és Bejelentkezés (regist.php,login.php) ----------*/
+img#kabala {
+    max-width: 250px;
+}
+div.regbej {
+    max-width: 600px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: var(--sotetlila);
+}
+.regbej input[type=submit], .regbej input[type=text], .regbej textarea, .regbej input[type=password], .regbej input[type=mail] {
+	width: 80%;
+	display: inline-block;
+	padding: 12px 20px;
+	margin: 8px 0px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+}
+.regbej input[type=submit], .regbej input[type="checkbox"] {
+    cursor: pointer;
+}
+.regbej input[type=text]:focus, .regbej input[type=password]:focus, .regbej input[type=mail]:focus {
+	border: 1px solid var(--vilagoskek);
+}
+.regbej input[type="submit"]:hover {
+    background-color: var(--vilagosszurke);
+    transition: ease-in-out .25s;
+    
+}
+.regbej_link {
+    font-size: 125%;
+}
+.regbej_link > a {
+    text-decoration: none;
+    color: white;
+}
+.regbej_link > a:hover {
+    text-decoration: underline;
+}
+
+/*---------- Főoldal (index.php) ----------*/
+.ajanlo_doboz {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.ajanlo_kep {
+    max-width: 250px;
+}
+.ajanlo_szoveg {
+    max-width: 500px;
+}
+/* Görgető gomb */
+#fel_gomb {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: var(--sotetlila);
+    z-index: 3;
+}
+#fel_gomb:hover {
+    box-shadow: #ccc 1px 1px 1px 1px !important;
+}
+#fel_gomb:active, #fel_gomb:focus {
+    box-shadow: none !important;
+    background-color: #ccc;
+}
+#fel_gomb>i, #fel_gomb>i {
+    color: white !important;
+}
+#fel_gomb:active>i, #fel_gomb:focus>i {
+    color: var(--sotetlila) !important;
+}
+/* Főoldal > Képváltó */
+button.kepvalto_gomb {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    transition: ease-in-out .5s;
+}
+button.kepvalto_gomb:hover {
+    color: var(--sotetlila);
+    background-color: white;
+    transition: ease-in-out .5s;
+}
+/* Cím háttérrel */
+div#httr {
+    background-image: url("img/bgc/kep1.png");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#httr h1 {
+    font-family: 'Protest Revolution', sans-serif;
+    letter-spacing: .2rem;
+    background-color: rgba(0,0,0,0.5);
+}
+div.szoveg {
+    font-family: 'Metrophobic', sans-serif;/*Ez még nem éles*/
+}
+.nagyvaltoszovege {
+    justify-content: flex-end !important;
+}
+
+/*---------- Lista (lista.php) ----------*/
+/* Keresés */
+#kereses input[type=text] {
+	display: inline-block;
+	padding: 12px 20px;
+	margin: 10px 0px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+}
+#kereses select {
+    display: inline-block;
+    border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+}
+#kereses input[type=submit] {
+    padding: 12px 20px;
+	margin: 10px 0px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+}
+#kereses input[type=text]:focus {
+	border: 1px solid var(--vilagoskek);
+}
+#kereses input[type="submit"]:hover {
+    background-color: var(--vilagosszurke);
+    transition: ease-in-out .25s;
+}
+#searchbtn{
+    background: url('img/anime_search.png') no-repeat center !important;
+    background-size: 50px !important;
+    background-color: var(--szurke) !important;
+}
+.updatebtn{
+    background: url('img/rikka.gif') no-repeat center !important;
+    background-size: 50px !important;
+    background-color: var(--szurke) !important;
+}
+#searchbtn:hover{
+    background-color: var(--vilagosszurke) !important;
+}
+/* Infó */
+.accordion-button::after {
+    background-image: url("img/chevron-down-solid.svg");
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url("img/chevron-down-solid_blue.svg");
+}
+.accordion-button[aria-expanded="false"] {
+    color: white !important;
+}
+/* Listaelemek */
+@keyframes tada {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    10%, 20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -1.5deg);
+      -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -1.5deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -1.5deg);
+    }
+  
+    30%, 50%, 70%, 90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 1.5deg);
+      -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 1.5deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 1.5deg);
+    }
+  
+    40%, 60%, 80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -1.5deg);
+      -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -1.5deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -1.5deg);
+    }
+  
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+.tada {
+    animation-name: tada;
+}
+.anime_doboz {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.anime_doboz img:hover {
+    opacity: 0.75;
+    transform: scale(1.05);
+    transition: .5s ease;
+    cursor: pointer;
+}
+.anime_kep {
+    aspect-ratio: 2/3;
+}
+.anime_szoveg {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    height: 30%;
+}
+.anime_szoveg > p {
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+div.mufajok {
+    border-radius: 25px;
+    background-color: white;
+    color: rgb(43, 42, 51);
+    padding: 2.5px 5px;
+    display: inline-block;
+}
+
+/*---------- Módosítás (modositas.php) ----------*/
+.modosit select, .modosit input[type="number"], .modosit input[type="submit"], .modosit input[type="reset"] {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+    width: auto;
+}
+.modosit input[type="submit"]:disabled, .modosit input[type="reset"]:not([disabled]) {
+    display: inline-block;
+}
+/* Minilista */
+.animesor table {
+    width: 100%;
+}
+.animesor :where(table,tr,td){
+  border-collapse: collapse;
+  max-height: 80px;
+}
+.animesor :where(td:nth-child(1)){
+  width: 50px;
+}
+.animesor :where(td:nth-child(1))>img{
+  display: block;
+  margin: 0 auto;
+}
+.animesor :where(td:nth-child(2)){
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.animesor :where(td:nth-child(3)){
+  width: 50px;
+  text-align: center;
+}
+.cimek {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.kiskep {
+    width: 50px;
+}
+div.animesor :where(input[type="button"],input[type="submit"]) {
+    width: 40px;
+    background: url('img/pokeball_lock.png') no-repeat center !important;
+    background-size: 25px !important;
+    background-color: gray !important;
+}
+div.animesor :where(input[type="button"],input[type="submit"]):hover {
+    background: url('img/pokeball_open.png') no-repeat center !important;
+    background-size: 25px !important;
+    background-color: gray !important;
+}
+
+/*---------- Hirfolyam (hirfolyam.php) ----------*/
+#hirform :where(textarea,input[type="text"]){
+    background-color: rgb(70,25,84) !important;
+    color: white;
+    resize: none;
+    padding: 8px;
+    margin: 8px 0px;
+}
+#hirform input[type="text"]:disabled {
+    background-color: transparent !important;
+    color: white;
+    resize: none;
+    border-style: none;
+    width: 250px;
+}
+.hirdiv {
+  background-color: rgb(70,25,84) !important;
+  color: white;
+  border: 1px solid white;
+  box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px;
+  padding: 16px;
+}
+.hirkep {
+  object-position: center;
+  max-width: 300px;
+}
+
+/*---------- Profil (profil.php) ----------*/
+/* Profil információi */
+img#cserekep {
+    opacity: 0.5;
+}
+/* Kitűző */
+img.kituzo {
+    width: 100px;
+}
+/*Gombok kinézete*/
+.func_btn{
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: var(--szurke);
+    color: white;
+    cursor: pointer;
+    padding: 1px 4px;
+}
+.func_btn:hover{
+    background-color: white;
+    color: var(--szurke);
+}
+/*Popup kinézet*/
+.popover-header{
+    color:white;
+    background-color: rgb(43, 42, 51);
+}
+.popover-body{
+    color: white;
+    background-color: rgb(43, 42, 51);
+}
+
+/*---------- Chat (uzenet.php) ----------*/
+.chat_profil{
+    border-radius: 5000px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+.chat_name{
+    font-weight: bold;
+    font-size: large;
+}
+.convesation{
+    cursor: pointer;
+    padding: 5px;
+
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 110px;
+    width: 220px;
+}
+.convesation:hover{
+    background-color:rgba(87, 31, 105, 0.521) ;
+}
+.message{
+    width: auto;
+    min-width: 100px;
+    max-width: 500px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 3px;
+    padding-left: 4px;
+    display: block;
+}
+.sender{
+    background-color: var(--vilagosszurke);
+    float: right;
+}
+.getter{
+    background-color:var(--sotetlila);
+}
+.chat{
+    max-height: 500px;
+    overflow-y: scroll;
+    padding-left:10px;
+    padding-right:10px;
+    flex-direction: column-reverse;
+    border: 1px solid white;
+
+    min-height: 500px;
+    overflow-x: hidden;
+}
+.converstations{
+    padding-left:5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    height: 125px;
+    border: 1px solid white;
+    white-space: nowrap;
+}
+#ramrem_chat{
+    width: auto;
+    height: 100%;
+}
+@media only screen and (max-width: 768px) {
+    .converstations{
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+    #ramrem_chat{
+        width: calc(100%);
+        height: auto;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .convesation{
+        width: 100%;
+    }
+    .converstations{
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .converstations{
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+}
+.uzineki {
+    height: 50px;
+    color: white;
+    border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+}
+.send{
+    padding-top: 10px;
+    padding-right: 10px;
+    /*float:right;
+    width:75%;
+    text-align: right;*/
+    margin: 0 10px;
+}
+.red_dot{
+    border-radius: 5000px;
+    background-color: red;
+    color: white;
+}
+.send_btn{
+    background: url("img/btn/paperplane1.svg") no-repeat;
+    border: none;
+    font-size:45px;
+    color: var(--sotetlila);
+    bottom: -10px;
+    width: 50px;
+    height: 50px;
+}
+.f{
+    background: url("img/btn/paperplane2_feher_vonal.svg") no-repeat;
+}
+.b{
+    background: url("img/btn/paperplane_3_3D-s_hatas\ \(1\).svg") no-repeat;
+}
+
+/*---------- Barátkeresés (baratk.php) ----------*/
+.friending{
+    background: url('img/box-cute.gif') no-repeat center !important;
+    width: 100px;
+    height: 50px;
+    background-size: 50px !important;
+}
+
+/*---------- Barátos stílusok egyben (baratkozo.php/baratk.php/profil.php) ----------*/
+.a_doboz {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    min-width: 100px;
+    max-width: 150px;
+}
+.a_szoveg {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    height: 50%;
+}
+.a_szoveg > h5 {
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.a_kep {
+    aspect-ratio: 2/3;
+}
+div.kozep form input[type="submit"]{
+    margin-top: calc(10%);
+}
+
+/*---------- Statisztika (statisztika.php) ----------*/
+.stat_gomb button{
+  padding: 5px;
+  background-color: rgb(87, 31, 105);
+  color: white;
+}
+.stat_gomb button:hover{
+  color: rgb(179, 154, 187);
+  text-decoration: underline;
+  transition: ease-in-out .1s;
+}
+.stat_gomb button:disabled{
+  color: rgb(87, 31, 105);
+  background-color: rgb(179, 154, 187);
+  text-decoration: none;
+}
+.stat_gomb button:last-child{
+    border-radius: 0 25px 0 0;
+}
+.stat_gomb button:first-child{
+  border-radius: 25px 0 0 0;
+}
+  
+.stat_gomb2 button{
+  padding: 5px;
+  background-color: rgb(87, 31, 105);
+  color: white;
+}
+.stat_gomb2 button:hover{
+  color: rgb(179, 154, 187);
+  text-decoration: underline;
+  transition: ease-in-out .1s;
+}
+.stat_gomb2 button:disabled{
+  color: rgb(87, 31, 105);
+  background-color: rgb(179, 154, 187);
+  text-decoration: none;
+}
+.stat_gomb2 button:last-child{	  border-radius: 0 0 25px 0;
+}
+.stat_gomb2 button:first-child{
+  border-radius: 0 0 0 25px;
+}
+
+#chartContainer1, #chartContainer12, #chartContainer13 {
+  background-image: url("img/pochi.gif") !important;
+  background-repeat: no-repeat;
+  background-size: 140px;
+  background-position: center;
+}
+/*----- Új jelszó (ujjelszo.php) -----*/
+div.ujp {
+    max-width: 600px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: var(--sotetlila);
+}
+.ujp :where(input[type=submit],input[type=text],input[type=mail]) {
+	width: 80%;
+	display: inline-block;
+	padding: 12px 20px;
+	margin: 8px 0px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+}
+.ujp input[type=submit] {
+    cursor: pointer;
+}
+.ujp input[type=text]:focus {
+	border: 1px solid var(--vilagoskek);
+}
+.ujp input[type="submit"]:hover {
+    background-color: var(--vilagosszurke);
+    transition: ease-in-out .25s;
+}
+/*----- Főoldal (index.php) -----*/
+div.fooldalinfo {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: white;
+    resize: none;
+    padding: 8px;
+    margin: 8px 0px;
+    box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px;
+}
+/*----- Panasz (admin_keres.php) -----*/
+#panasz {
+	display: inline-block;
+	padding: 12px 20px;
+	margin: 8px 0px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+    background-color: var(--szurke);
+    color: white;
+    resize: none;
+}
